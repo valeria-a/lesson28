@@ -10,7 +10,14 @@ export default function FactWithLike(props) {
             <p style={{margin: 0}}>{props.factText}</p>
             <IconButton 
                 color="primary" variant="outlined"
-                onClick={() => props.onLikedNumber(Number(props.factText.split(' ')[0]))}>
+                // onClick={props.onLikedNumber(Number(props.factText.split(' ')[0]))}
+                onClick={() => {
+                    console.log("inside onClick in LikeButton")
+                    const num = Number(props.factText.split(' ')[0])
+                    console.log('calling props.onLikedNumber with ', num)
+                    props.onLikedNumber(num)
+                    }
+                }>
                 <ThumbUpAltIcon />
             </IconButton>
         </Stack>

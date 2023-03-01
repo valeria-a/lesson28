@@ -17,6 +17,9 @@ export default function NumbersFactsLiked(props) {
     const [likedNumbers, setLikedNumbers] = useState([])
 
 
+    // const [text, setText] = useState('')
+
+
     const getFact = () => {
         
         // set loading to true
@@ -42,10 +45,21 @@ export default function NumbersFactsLiked(props) {
 
     const handleLikedNumber = (number) => {
 
+        console.log('inside handleLikedNumber with ', number, 'in NumberFacts component')
+
         // updating an array - need to create a copy and add anew element to it
         // make sure not to mutate the array, but to copy one!
+        // DON't do this!!!
+        // likedNumbers.push([number])
+        // setLikedNumbers([...likedNumbers])
+        
+        // https://beta.reactjs.org/learn/updating-arrays-in-state
         const newArray = [...likedNumbers, number]
         setLikedNumbers(newArray)
+
+        // setLikedNumbers([...likedNumbers, number])
+
+
     }
 
     return(
